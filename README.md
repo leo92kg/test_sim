@@ -13,6 +13,8 @@ TEXT 1
 
 # Links to the example headings above
 
+<p>$\it{\large{\color{#DD6565}이텔릭체,\ 큰글씨,\ 빨간색}}$</p>
+
 2</sup>/</sup>3
 
 $\ \boldsymbol{\alpha\beta\gamma\delta\epsilon\zeta\eta\theta} \$
