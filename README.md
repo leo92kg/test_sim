@@ -17,7 +17,11 @@ TEXT 2
 
 # Links to the example headings above
 
-$$A=\begin{pmatrix}
+2</sup>/</sup>3
+
+$\ \boldsymbol{\alpha\beta\gamma\delta\epsilon\zeta\eta\theta} \$
+
+$$ A=\begin{pmatrix}
 x & y \\
 z & v
 \end{pmatrix}*x +
@@ -32,7 +36,7 @@ $x3=s^2Y(s)$ -> $x3'=s^3Y(s) = x4$\
 $\dot{a}$
 
 
-$x'$=[$3 \over 4$  2 3]\
+$x'$=$\' [$3 \over 4$  2 3] '\$ \
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4 5 6]\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[7 8 9]
 
@@ -42,16 +46,4 @@ $x'$=[4 5 6]&nbsp; $x$ $+$ [0] $u$ \
 
 $x$
 
-
-
-
-1<sup>2</sup>/<sub>3</sub>
-2</sup>/</sup>3
-
-
-    [ a b c ]        [ 1 2 3 ]            [ a*1 b*2 c*3 ]
-A = [ d e f ]    B = [ 4 5 6 ]    A * B = [ d*4 e*5 f*6 ]
-    [ g h i ]        [ 7 8 9 ]            [ g*7 h*8 i*9 ]
-
-1/2
 
