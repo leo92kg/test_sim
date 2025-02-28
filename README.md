@@ -107,27 +107,91 @@ The following example works properly with both the transfer function and the sta
 
 <pre>
 <code>
->> num;
->> den;
->> [A,B,C,D]=tf2ss(num,den);
+>> 
+>> num=[0.02 2000]; den=[1 1000 132 420 2000];
+>> 
+>> sys_tf=tf(num,den); figure(1); impulse(sys_tf);
+>> 
+>> [A,B,C,D]=tf2ss(num,den); sys_ss=ss(A,B,C,D); figure(2); impulse(sys_ss);
+>> 
+
+>> An=[0 1 0 0;0 0 1 0;0 0 0 1;-a4 -a3 -a2 -a1];
+>> Bn=[0 0 0 1]';
+>> Cn=[b2 b1 0 0];
+>> Dn=0;
+>> 
 >> sys_ss
+  <span style="color: red"> Some green text </span>
+    <span
+    class="ml-1 d-inline-block border circle color-border-subtle"
+    style="background-color: #aa4400; height: 8px; width: 8px;"
+  ></span>
+  <code> <i><b>This text will be italic</b></i> <b>this text will be bold</b> </code>
+  <code>some <span style="color:blue">beautiful</span> text here</code>
+
+sys_ss.a =
+               x1          x2          x3          x4
+   x1   -3.44e-15   2.365e-14  -1.879e-15           2
+   x2         -10   1.776e-15  -2.365e-14        -4.2
+   x3          <code> <b>0</b>  </code>       -10  -1.774e-15        13.2
+   x4          <code> <b>0</b>  </code>        <code> <b>0</b>  </code>       -10       -1000
+
+sys_ss.b =
+              u1
+   x1          2
+   x2    -0.0002
+   x3  4.729e-15
+   x4          0
+
+sys_ss.c =
+       x1  x2  x3  x4
+   y1   0   0   0  -1
+
+sys_ss.d =
+       u1
+   y1   0
+>> 
 >> sys_ssn
+                                                                                                               
+sys_ssn.a =
+           x1      x2      x3      x4
+   x1       0   3.182       0       0
+   x2       0       0   0.132       0
+   x3       0       0       0    1000
+   x4  -4.762  -3.182  -0.132   -1000
+
+sys_ssn.b =
+       u1
+   x1   0
+   x2   0
+   x3   0
+   x4   1
+
+sys_ssn.c =
+              x1         x2         x3         x4
+   y1      4.762  0.0001515          0          0
+
+sys_ssn.d =
+       u1
+   y1   0  
 </code>
 </pre>
 
-But there are unwanted non-zero values in the state space model produced by the tiss function.
+But there are unwanted non-zero values in the state space model produced by the tf2ss function.
 
 
 
 
+# generalized method
+
+$x_1=\boldsymbol{\alpha}Y(s)\; \to x_1'=  sY(s)= x_2$\
+$x_2=\boldsymbol{\beta}sY(s)\ \to x_2'=s^2Y(s)= x_3$\
+$x_3=\boldsymbol{\gamma}s^2Y(s) \to x_3'=s^3Y(s) = x_4$\
+$x_4=s^3Y(s) \to x_4'=s^4Y(s) = -a_4 Y(s) -a_3 sY(s) -a_2 s^2Y(s) -a_1 s^3Y(s)= -a_4 x_1 -a_3 x_2 -a_2 x_3 -a_1 x_4 + u $
 
 
 
 
-
-
-
-## transfer function to state space model
 
 ## example
 $Transfer\ Function = \dfrac{b_1s + b_2}{s^4Y(s) + a_1s^3Y(s) + a_2s^2Y(s) + a_3sY(s) + a_4}$
