@@ -206,6 +206,14 @@ the computational load can be reduced.
 
 $\ \boldsymbol{\alpha\beta\gamma\delta\epsilon\zeta\eta\theta} \$
 
+# License
+Educational Use License
 
+This software is provided for **educational and research purposes only**.
+You may use, modify, and distribute this code **only in a non-commercial
+educational setting**. Any commercial use, including but not limited to
+selling, licensing, or incorporating this software into commercial products,
+is strictly prohibited without explicit permission from the author.
 
+For inquiries regarding commercial use, please contact [Your Email].
 
