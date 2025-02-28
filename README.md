@@ -32,7 +32,97 @@ $Transfer\ Function = \dfrac{b_1s + b_2}{s^4Y(s) + a_1s^3Y(s) + a_2s^2Y(s) + a_3
 $x_1=Y(s)\; \to x_1'=  sY(s)= x_2$\
 $x_2=sY(s)\ \to x_2'=s^2Y(s)= x_3$\
 $x_3=s^2Y(s) \to x_3'=s^3Y(s) = x_4$\
-$x_4=s^3Y(s) \to x_4'=s^4Y(s) = -a_4 Y(s) -a_3 sY(s) -a_2 s^2Y(s) -a_1 s^3Y(s)= -a_4 x_1 -a_3 x_2 -a_2 x_3 -a_1 x_4$
+$x_4=s^3Y(s) \to x_4'=s^4Y(s) = -a_4 Y(s) -a_3 sY(s) -a_2 s^2Y(s) -a_1 s^3Y(s)= -a_4 x_1 -a_3 x_2 -a_2 x_3 -a_1 x_4 + u $
+
+$$x'=\begin{bmatrix}
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 1 & 0 & 1\\
+-a_4 & -a_3 & -a_2 & -a_1
+\end{bmatrix} + \begin{bmatrix}
+0\\
+0\\
+0\\
+1
+\end{bmatrix} u$$
+$$y = \begin{bmatrix}
+b_2 & b_1 & 0 & 0
+\end{bmatrix} + 0*u$$
+
+There is no reason to do "Let", and as you know, there are many methods.
+
+Unlike the previous method, I changed it as follows.
+
+$x_1=Y(s)\; \to x_1'=  sY(s)= x_2$\
+$x_2=sY(s)\ \to x_2'=s^2Y(s)= x_3$\
+$x_3=s^2Y(s) \to x_3'=s^3Y(s) = x_4$\
+$x_4=s^3Y(s) \to x_4'=s^4Y(s) = -a_4 Y(s) -a_3 sY(s) -a_2 s^2Y(s) -a_1 s^3Y(s)= -a_4 x_1 -a_3 x_2 -a_2 x_3 -a_1 x_4 + u $
+
+$$x'=\begin{bmatrix}
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 1 & 0 & 1\\
+-a_4 & -a_3 & -a_2 & -a_1
+\end{bmatrix} + \begin{bmatrix}
+0\\
+0\\
+0\\
+1
+\end{bmatrix} u$$
+$$y = \begin{bmatrix}
+b_2 & b_1 & 0 & 0
+\end{bmatrix} + 0*u$$
+
+So I got An, Bn, Cn, Dn matrix and it works in the impulse response.
+
+<pre>
+<code>
+>> 
+>> sys_ssn=ss(An,Bn,Cn,Dn);
+>> 
+>> sys_ss
+  A,B,C,D
+>> 
+>> sys_ssn
+  An,Bn,Cn,Dn
+>> 
+>> pole(sys_ss)
+  pole values
+>> 
+>> ploe(sys_ssn)
+  pole values
+>> 
+>> zero(sys_ss)
+  zero value
+>> 
+>> zero(sys_ssn)
+  zero value
+>> 
+</code>
+</pre>
+
+Moreover, there are more zero values than the state space model obtained from the tf2ss function.
+
+The following example works properly with both the transfer function and the state space mode.
+
+<pre>
+<code>
+>> num;
+>> den;
+>> [A,B,C,D]=tf2ss(num,den);
+>> sys_ss
+>> sys_ssn
+</code>
+</pre>
+
+But there are unwanted non-zero values in the state space model produced by the tiss function.
+
+
+
+
+
+
+
 
 
 
