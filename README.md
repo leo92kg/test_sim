@@ -29,10 +29,10 @@ I watched the derivation process of the equation closely and got something weird
 
 $Transfer\ Function = \dfrac{b_1s + b_2}{s^4Y(s) + a_1s^3Y(s) + a_2s^2Y(s) + a_3sY(s) + a_4}$
 
-$x_1=Y(s)\; \to x_1'=  sY(s)= x_2$\
-$x_2=sY(s)\ \to x_2'=s^2Y(s)= x_3$\
-$x_3=s^2Y(s) \to x_3'=s^3Y(s) = x_4$\
-$x_4=s^3Y(s) \to x_4'=s^4Y(s) = -a_4 Y(s) -a_3 sY(s) -a_2 s^2Y(s) -a_1 s^3Y(s)= -a_4 x_1 -a_3 x_2 -a_2 x_3 -a_1 x_4 + u $
+$Let\ x_1=Y(s)\; \to x_1'=  sY(s)= x_2$\
+$Let\ x_2=sY(s)\ \to x_2'=s^2Y(s)= x_3$\
+$Let\ x_3=s^2Y(s) \to x_3'=s^3Y(s) = x_4$\
+$Let\ x_4=s^3Y(s) \to x_4'=s^4Y(s) = -a_4 Y(s) -a_3 sY(s) -a_2 s^2Y(s) -a_1 s^3Y(s)= -a_4 x_1 -a_3 x_2 -a_2 x_3 -a_1 x_4 + u $
 
 $$x'=\begin{bmatrix}
 0 & 1 & 0 & 0\\
@@ -53,10 +53,10 @@ There is no reason to do "Let", and as you know, there are many methods.
 
 Unlike the previous method, I changed it as follows.
 
-$x_1=Y(s)\; \to x_1'=  sY(s)= x_2$\
-$x_2=sY(s)\ \to x_2'=s^2Y(s)= x_3$\
-$x_3=s^2Y(s) \to x_3'=s^3Y(s) = x_4$\
-$x_4=s^3Y(s) \to x_4'=s^4Y(s) = -a_4 Y(s) -a_3 sY(s) -a_2 s^2Y(s) -a_1 s^3Y(s)= -a_4 x_1 -a_3 x_2 -a_2 x_3 -a_1 x_4 + u $
+$Let\ x_1=Y(s)\ \to x_1'=  sY(s)= x_2$\
+$Let\ x_2=sY(s)\ \to x_2'=s^2Y(s)= x_3$\
+$Let\ x_3=s^2Y(s) \to x_3'=s^3Y(s) = x_4$\
+$Let\ x_4=s^3Y(s) \to x_4'=s^4Y(s) = -a_4 Y(s) -a_3 sY(s) -a_2 s^2Y(s) -a_1 s^3Y(s)= -a_4 x_1 -a_3 x_2 -a_2 x_3 -a_1 x_4 + u $
 
 $$x'=\begin{bmatrix}
 0 & 1 & 0 & 0\\
@@ -121,59 +121,52 @@ The following example works properly with both the transfer function and the sta
 >> Dn=0;
 >> 
 >> sys_ss
-  <span style="color: red"> Some green text </span>
-    <span
-    class="ml-1 d-inline-block border circle color-border-subtle"
-    style="background-color: #aa4400; height: 8px; width: 8px;"
-  ></span>
-  <code> <i><b>This text will be italic</b></i> <b>this text will be bold</b> </code>
-  <code>some <span style="color:blue">beautiful</span> text here</code>
 
 sys_ss.a =
                x1          x2          x3          x4
    x1   -3.44e-15   2.365e-14  -1.879e-15           2
    x2         -10   1.776e-15  -2.365e-14        -4.2
-   x3          <code> <b>0</b>  </code>       -10  -1.774e-15        13.2
-   x4          <code> <b>0</b>  </code>        <code> <b>0</b>  </code>       -10       -1000
+   x3           <code><b>0</b></code>         -10  -1.774e-15        13.2
+   x4           <code><b>0</b></code>           <code><b>0</b></code>         -10       -1000
 
 sys_ss.b =
               u1
    x1          2
    x2    -0.0002
    x3  4.729e-15
-   x4          0
+   x4          <code><b>0</b></code>
 
 sys_ss.c =
        x1  x2  x3  x4
-   y1   0   0   0  -1
+   y1   <code><b>0</b></code>   <code><b>0</b></code>   <code><b>0</b></code>  -1
 
 sys_ss.d =
        u1
-   y1   0
+   y1   <code><b>0</b></code>
 >> 
 >> sys_ssn
                                                                                                                
 sys_ssn.a =
            x1      x2      x3      x4
-   x1       0   3.182       0       0
-   x2       0       0   0.132       0
-   x3       0       0       0    1000
+   x1       <code><b>0</b></code>   3.182       <code><b>0</b></code>       <code><b>0</b></code>
+   x2       <code><b>0</b></code>       <code><b>0</b></code>   0.132       <code><b>0</b></code>
+   x3       <code><b>0</b></code>       <code><b>0</b></code>       <code><b>0</b></code>    1000
    x4  -4.762  -3.182  -0.132   -1000
 
 sys_ssn.b =
        u1
-   x1   0
-   x2   0
-   x3   0
+   x1   <code><b>0</b></code>
+   x2   <code><b>0</b></code>
+   x3   <code><b>0</b></code>
    x4   1
 
 sys_ssn.c =
               x1         x2         x3         x4
-   y1      4.762  0.0001515          0          0
+   y1      4.762  0.0001515          <code><b>0</b></code>          <code><b>0</b></code>
 
 sys_ssn.d =
        u1
-   y1   0  
+   y1   <code><b>0</b></code>  
 </code>
 </pre>
 
@@ -184,84 +177,35 @@ But there are unwanted non-zero values in the state space model produced by the 
 
 # generalized method
 
-$x_1=\boldsymbol{\alpha}Y(s)\; \to x_1'=  sY(s)= x_2$\
-$x_2=\boldsymbol{\beta}sY(s)\ \to x_2'=s^2Y(s)= x_3$\
-$x_3=\boldsymbol{\gamma}s^2Y(s) \to x_3'=s^3Y(s) = x_4$\
-$x_4=s^3Y(s) \to x_4'=s^4Y(s) = -a_4 Y(s) -a_3 sY(s) -a_2 s^2Y(s) -a_1 s^3Y(s)= -a_4 x_1 -a_3 x_2 -a_2 x_3 -a_1 x_4 + u $
+$Let\ x_1=Y(s)\ \to x_1'=  sY(s)= x_2$\
+$Let\ x_2=sY(s)\ \to x_2'=s^2Y(s)= x_3$\
+$Let\ x_3=s^2Y(s) \to x_3'=s^3Y(s) = x_4$\
+$Let\ x_4=s^3Y(s) \to x_4'=s^4Y(s) = -a_4 Y(s) -a_3 sY(s) -a_2 s^2Y(s) -a_1 s^3Y(s)= -a_4 x_1 -a_3 x_2 -a_2 x_3 -a_1 x_4 + u $
 
+$$x'=\begin{bmatrix}
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 1 & 0 & 1\\
+-a_4 & -a_3 & -a_2 & -a_1
+\end{bmatrix} + \begin{bmatrix}
+0\\
+0\\
+0\\
+1
+\end{bmatrix} u$$
+$$y = \begin{bmatrix}
+b_2 & b_1 & 0 & 0
+\end{bmatrix} + 0*u$$
 
+If the variables($\boldsymbol{\alpha, \beta, \gamma, \delta, \epsilon, \zeta, \eta, \theta}$) are modified to obtain "coefficient of the matrix = multiple of 2($2^n$)" after the continuous-to-discrete conversion,\
+the computational load can be reduced.
 
-
-
-## example
-$Transfer\ Function = \dfrac{b_1s + b_2}{s^4Y(s) + a_1s^3Y(s) + a_2s^2Y(s) + a_3sY(s) + a_4}$
-
-$x_1=Y(s)\; \to x_1'=  sY(s)= x_2$\
-$x_2=sY(s)\ \to x_2'=s^2Y(s)= x_3$\
-$x_3=s^2Y(s) \to x_3'=s^3Y(s) = x_4$\
-$x_4=s^3Y(s) \to x_4'=s^4Y(s) = -a_4 Y(s) -a_3 sY(s) -a_2 s^2Y(s) -a_1 s^3Y(s)= -a_4 x_1 -a_3 x_2 -a_2 x_3 -a_1 x_4$
-
-$\dot{a}$
-
-$$ \dot{x}=\begin{pmatrix}
-x & y \\
-z & v
-\end{pmatrix}*x +
-\begin{pmatrix}
-x \\
-z 
-\end{pmatrix}*u $$
-
-```math
-\left \begin{pmatrix}
-x & y \\
-z & v \left
-\end{pmatrix}
-```
-
-$\begin{bmatrix}A1 &A2 & A3\\A4 & A5 & A6 \end{bmatrix}$
-
-
-## This'll be a _Helpful_ Section About the Greek Letter Θ!
-A heading containing characters not allowed in fragments, UTF-8 characters, two consecutive spaces between the first and second words, and formatting.
-
-## This heading is not unique in the file
-
-TEXT 1
-
-# Links to the example headings above
-
-<p>$\it{\large{\color{#DD6565}이텔릭체,\ 큰글씨,\ 빨간색}}$</p>
+<p>${\large{\color{#DD6565}It\ isn't\ logic\ to\ do\ "Let",\ so\ there\ is\ a\ problem\ in\ mathmatics.}}$</p>
 
 2</sup>/</sup>3
 
 $\ \boldsymbol{\alpha\beta\gamma\delta\epsilon\zeta\eta\theta} \$
 
-Let $x= \boldsymbol{\alpha} {\alpha} $
 
-$$ A=\begin{pmatrix}
-x & y \\
-z & v
-\end{pmatrix}*x +
-\begin{pmatrix}
-x \\
-z 
-\end{pmatrix}*u $$
-
-$x1=Y(s)$    -> $x1'=sY(s)= x2$\
-$x2=sY(s)$   -> $x2'=s^2Y(s)= x3$\
-$x3=s^2Y(s)$ -> $x3'=s^3Y(s) = x4$\
-$\dot{a}$
-
-
-$x'$=$\' [$3\over4$  2 3] '\$ \
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4 5 6]\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[7 8 9]
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2</sup>/</sup>3 2 3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0]\
-$x'$=[&nbsp;4 5 6]&nbsp; $x$ $+$ [0] $u$ \
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[7 8 9]
-
-$x$
 
 
