@@ -3,12 +3,12 @@
 ## transfer function to state space model
 
 ## example
-$\dfrac{b1s + b2}{s^4Y(s) + a1s^3Y(s) + a2s^2Y(s) + a3sY(s) + a4}$
+$Transfer\ Function = \dfrac{b_1s + b_2}{s^4Y(s) + a_1s^3Y(s) + a_2s^2Y(s) + a_3sY(s) + a_4}$
 
-$x1=Y(s) \to x1'=  sY(s)= x2$\
-$x2=sY(s) \to x2'=s^2Y(s)= x3$\
-$x3=s^2Y(s) \to x3'=s^3Y(s) = x4$\
-$x4=s^3Y(s) \to x4'=s^4Y(s) = -a4Y(s) -a3sY(s) -a2s^2Y(s) -a1s^3Y(s)= -a4 \cdot x1 -a3 \cdot x2 -a2 \cdot x3 -a1 \cdot x4$
+$x_1=Y(s)\; \to x_1'=  sY(s)= x_2$\
+$x_2=sY(s)\ \to x_2'=s^2Y(s)= x_3$\
+$x_3=s^2Y(s) \to x_3'=s^3Y(s) = x_4$\
+$x_4=s^3Y(s) \to x_4'=s^4Y(s) = -a_4 Y(s) -a_3 sY(s) -a_2 s^2Y(s) -a_1 s^3Y(s)= -a_4 x_1 -a_3 x_2 -a_2 x_3 -a_1 x_4$
 
 $\dot{a}$
 
