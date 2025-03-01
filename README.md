@@ -65,21 +65,6 @@ $Let\ x_2=sY(s)\ \to x_2'=s^2Y(s)= x_3$\
 $Let\ x_3=s^2Y(s) \to x_3'=s^3Y(s) = x_4$\
 $Let\ x_4=s^3Y(s) \to x_4'=s^4Y(s) = -a_4 Y(s) -a_3 sY(s) -a_2 s^2Y(s) -a_1 s^3Y(s)= -a_4 x_1 -a_3 x_2 -a_2 x_3 -a_1 x_4 + u $
 
-$$x'=\begin{bmatrix}
-0 & 1 & 0 & 0\\
-0 & 0 & 1 & 0\\
-0 & 1 & 0 & 1\\
--a_4 & -a_3 & -a_2 & -a_1
-\end{bmatrix} + \begin{bmatrix}
-0\\
-0\\
-0\\
-1
-\end{bmatrix} u$$
-$$y = \begin{bmatrix}
-b_2 & b_1 & 0 & 0
-\end{bmatrix} + 0*u$$
-
 There is no reason to do "Let", and as you know, there are many methods.
 
 Unlike the previous method, I changed it as follows.
@@ -92,7 +77,7 @@ $Let\ x_4=s^3Y(s) \to x_4'=s^4Y(s) = -a_4 Y(s) -a_3 sY(s) -a_2 s^2Y(s) -a_1 s^3Y
 $$x'=\begin{bmatrix}
 0 & 1 & 0 & 0\\
 0 & 0 & 1 & 0\\
-0 & 1 & 0 & 1\\
+0 & 0 & 0 & 1\\
 -a_4 & -a_3 & -a_2 & -a_1
 \end{bmatrix} + \begin{bmatrix}
 0\\
@@ -294,7 +279,9 @@ But there are unwanted non-zero values in the state space model produced by the 
 $Let\ x_1=Y(s)\ \to x_1'=  sY(s)= x_2$\
 $Let\ x_2=sY(s)\ \to x_2'=s^2Y(s)= x_3$\
 $Let\ x_3=s^2Y(s) \to x_3'=s^3Y(s) = x_4$\
-$Let\ x_4=s^3Y(s) \to x_4'=s^4Y(s) = -a_4 Y(s) -a_3 sY(s) -a_2 s^2Y(s) -a_1 s^3Y(s)= -a_4 x_1 -a_3 x_2 -a_2 x_3 -a_1 x_4 + u $
+$......$\
+$Let\ x_{n-1}=s^{n-2}Y(s) \to x_{n-1}'=s^nY(s)=x_n$\
+$Let\ x_n=s^{n-1}Y(s) \to x_n'=s^nY(s) = -a_n Y(s) -a_{n-1} sY(s) -a_{n-2} s^2Y(s) ... -a_1 s^nY(s) +u = -a_n x_1 -a_{n-1} x_2 -a_{n-2} x_3 ...... -a_1 x_n + u $
 
 $$x'=\begin{bmatrix}
 0 & 1 & 0 & 0\\
@@ -318,7 +305,7 @@ the computational load can be reduced.
 
 2</sup>/</sup>3
 
-$\ \boldsymbol{\alpha\beta\gamma\delta\epsilon\zeta\eta\theta} \$
+$\ \boldsymbol{\alpha\beta\gamma\delta\epsilon\zeta\eta\theta\varphi} \$
 
 <table>
   <tr>
