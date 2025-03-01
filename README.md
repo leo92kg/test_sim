@@ -60,7 +60,7 @@ I watched the derivation process of the equation closely and got something weird
 
 $$Transfer\ Function = \dfrac{b_1s + b_2}{s^4Y(s) + a_1s^3Y(s) + a_2s^2Y(s) + a_3sY(s) + a_4}$$
 
-$Let\ x_1=Y(s)\; \to x_1'=  sY(s)= x_2$\
+$Let\ x_1=Y(s)\ \to x_1'=  sY(s)= x_2$\
 $Let\ x_2=sY(s)\ \to x_2'=s^2Y(s)= x_3$\
 $Let\ x_3=s^2Y(s) \to x_3'=s^3Y(s) = x_4$\
 $Let\ x_4=s^3Y(s) \to x_4'=s^4Y(s) = -a_4 Y(s) -a_3 sY(s) -a_2 s^2Y(s) -a_1 s^3Y(s)= -a_4 x_1 -a_3 x_2 -a_2 x_3 -a_1 x_4 + u $
@@ -298,7 +298,7 @@ $$y = \begin{bmatrix}
 b_2 & b_1 & 0 & 0
 \end{bmatrix} + 0*u$$
 
-If the variables($\boldsymbol{\alpha, \beta, \gamma, \delta, \epsilon, \zeta, \eta, \theta}$) are modified to obtain "coefficient of the matrix = multiple of 2($2^n$)" after the continuous-to-discrete conversion,\
+If the variables($\boldsymbol{\alpha, \beta, \gamma, \delta, \epsilon, \zeta, \eta, \theta, ..., \varphi}$) are modified to obtain "coefficient of the matrix = multiple of 2($2^n$)" after the continuous-to-discrete conversion,\
 the computational load can be reduced.
 
 <p>${\large{\color{#DD6565}It\ isn't\ logic\ to\ do\ "Let",\ so\ there\ is\ a\ problem\ in\ mathmatics.}}$</p>
