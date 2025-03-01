@@ -93,6 +93,11 @@ So I got An, Bn, Cn, Dn matrix and it works in the impulse response.
 
 <pre>
 <code>
+>> a1=den(2); a2=den(3); a3=den(4); a4=den(5); b1=num(1); b2=num(2);
+>> An=[0 1 0 0; 0 0 1 0; 0 0 0 a1; -a4 -a3 -a2 -a1];
+>> Bn=[0 0 0 1]';
+>> Cn=[b2/a3 b1/a2 0 0];
+>> Dn=0;
 >> 
 >> sys_ssn=ss(An,Bn,Cn,Dn); figure(3); impulse(sys_ssn);
 >> 
