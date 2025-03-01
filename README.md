@@ -145,19 +145,19 @@ ans = -34000000000.00003
 >> sys_ss
 sys_ss.a =
                x1          x2          x3          x4
-   x1           0   6.573e+10           0           0
-   x2           0           0   1.021e+12           0
-   x3           0           0           0    1.36e+11
-   x4  -5.074e+11  -6.573e+10  -1.021e+12   -1.36e+11
+   x1   0.0001144  -0.0002071  -8.276e-05  -4.629e+10
+   x2      -1e+11   -5.44e-05  -0.0001899   9.124e+09
+   x3           0       1e+12   0.0001103   1.388e+11
+   x4           0           0      -1e+12   -1.36e+11
 sys_ss.b =
-       u1
-   x1   0
-   x2   0
-   x3   0
-   x4   1
+              u1
+   x1      53.98
+   x2     -158.8
+   x3   1.22e-15
+   x4          0
 sys_ss.c =
              x1        x2        x3        x4
-   y1  -0.05916   -0.1144         0         0
+   y1         0         0         0   -0.0001
 sys_ss.d =
        u1
    y1   0
@@ -286,13 +286,15 @@ $Let\ x_2=sY(s)\ \to x_2'=s^2Y(s)= x_3$\
 $Let\ x_3=s^2Y(s) \to x_3'=s^3Y(s) = x_4$\
 $......$\
 $Let\ x_{n-1}=s^{n-2}Y(s) \to x_{n-1}'=s^nY(s)=x_n$\
-$Let\ x_n=s^{n-1}Y(s) \to x_n'=s^nY(s) = -a_n Y(s) -a_{n-1} sY(s) -a_{n-2} s^2Y(s) ... -a_1 s^nY(s) +u(s) = -a_n x_1 -a_{n-1} x_2 -a_{n-2} x_3 ...... -a_1 x_n + u $
+$Let\ x_n=s^{n-1}Y(s) \to x_n'=s^nY(s) = -a_n Y(s) -a_{n-1} sY(s) -a_{n-2} s^2Y(s) ... -a_1 s^nY(s) +u(s) $
+$\qquad \qquad \qquad \qquad \qquad \qquad \qquad \quad = -a_n x_1 -a_{n-1} x_2 -a_{n-2} x_3 ...... -a_1 x_n + u $
 
 $$x'=\begin{bmatrix}
 0 & 1 & 0 & 0 & ... & 0\\
 0 & 0 & 1 & 0 & ... & 0\\
 0 & 0 & 0 & 1 & ... & 0\\
-... & ... & ... & ... & ... & 1\\
+... & ... & ... & ... & ... & ...\\
+0 & 0 & 0 & 0 & ... & 1\\
 -a_n & -a_{n-1} & -a_{n-2} & -a_{n-3} & ... & -a_1
 \end{bmatrix} + \begin{bmatrix}
 0\\
@@ -304,14 +306,14 @@ $$y = \begin{bmatrix}
 b_2 & b_1 & 0 & 0
 \end{bmatrix} + 0*u$$
 
-If the variables($\boldsymbol{\alpha, \beta, \gamma, \delta, \epsilon, \zeta, \eta, \theta, ..., \varphi}$) are modified to obtain "coefficient of the matrix = multiple of 2($2^n$)" after the continuous-to-discrete conversion,\
+If the variables($\boldsymbol{\alpha, \beta, \gamma, \delta, \epsilon, \zeta, \eta, \theta, ..., \vartheta, \varphi}$) are modified to obtain "coefficient of the matrix = multiple of 2($2^n$)" after the continuous-to-discrete conversion,\
 the computational load can be reduced.
 
 <p>${\large{\color{#DD6565}It\ isn't\ logic\ to\ do\ "Let",\ so\ there\ is\ a\ problem\ in\ mathmatics.}}$</p>
 
-2</sup>/</sup>3
+<p>$\huge{\rm{\color{#DD6565}It\ isn't\ logic\ to\ do\ "Let",\ so\ there\ is\ a\ problem\ in\ mathmatics.}}$</p>
 
-$\ \boldsymbol{\alpha\beta\gamma\delta\epsilon\zeta\eta\theta\varphi} \$
+2</sup>/</sup>3
 
 <table>
   <tr>
