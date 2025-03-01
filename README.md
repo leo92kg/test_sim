@@ -1,33 +1,103 @@
 # tf2ss function returns unstable system.
+
+
+
 num, den, tf2ss, impulse, pole, zero
 
 <pre>
 <code>
->> num;
->> den;
->> [A,B,C,D]=tf2ss(num,den);
->> impulse(sys_tf);
->> impulse(sys_ss);
+>>
+>> pkg load control; pkg load signal; clear; 
+>> 
+>> alpha=5.6*10^10; beta=1.2*10^10; omega=2*pi*4.1016*10^10; den1=[1 2*alpha alpha^2+omega^2]; den2=[1 2*beta beta^2+omega^2];
+>> 
+>> num=0.7*omega*[2*(beta-alpha) beta^2-alpha^2]; den=conv(den1, den2);
+>> 
+>> sys_tf=tf(num,den); figure(1); impulse(sys_tf);
+>>  
+>> [A,B,C,D]=tf2ss(num,den); sys_ss=ss(A,B,C,D); figure(2); impulse(sys_ss);
+error: c2d: system is already discrete-time
+error: called from
+    c2d at line 69 column 5
+    __time_response__ at line 125 column 7
+    impulse at line 74 column 13
+>>
 </code>
 </pre>
 
-Transfer function and state space model obtained by tf2ss function failed in the impulse response.\
+The state space model obtained by tf2ss function failed in the impulse response.\
 I checked pole and zero both sides, pole values are the same but found zero value mismatch between sides.\
 But I don't know why the impulse response of transfer function doesn't behave as expected.
 
+<table>
+  <tr>
+    <td style="width: 50%;">
 <pre>
 <code>
->> zero(sys_tf);
-  return values
->> zero(sys_ss);
-  return values
+>> pole(sys_tf)
+ans =
+  -5.6000e+10 + 2.5771e+11i
+  -5.6000e+10 - 2.5771e+11i
+  -1.2000e+10 + 2.5771e+11i
+  -1.2000e+10 - 2.5771e+11i
+>> zero(sys_tf)
+ans = -34000000000
 </code>
 </pre>
+    </td>
+    <td style="width: 50%;">
+<pre>
+<code>
+>> pole(sys_ss)
+ans = [](0x0)
+>> zero(sys_ss)
+ans = [](0x1)
+>>
+<pre>
+<code>
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td style="width: 50%;">
+      pole(sys_tf)
+      첫 번째 섹션의 내용을 작성하세요.
+    </td>
+    <td style="width: 50%;">
+      # 두 번째 섹션 제목
+      두 번째 섹션의 내용을 작성하세요.
+    </td>
+  </tr>
+</table>
+
+<pre>
+<code>
+>> pole(sys_tf)
+ans =
+  -5.6000e+10 + 2.5771e+11i
+  -5.6000e+10 - 2.5771e+11i
+  -1.2000e+10 + 2.5771e+11i
+  -1.2000e+10 - 2.5771e+11i
+</code>
+</pre>
+
+<pre>
+<code>
+>> pole(sys_ss)
+ans = [](0x0)
+>> zero(sys_ss)
+ans = [](0x1)
+>>
+<pre>
+<code>
+
 
 Upon review, I found that there is a problem with the calculation.\
 I watched the derivation process of the equation closely and got something weird.
 
-$Transfer\ Function = \dfrac{b_1s + b_2}{s^4Y(s) + a_1s^3Y(s) + a_2s^2Y(s) + a_3sY(s) + a_4}$
+$$Transfer\ Function = \dfrac{b_1s + b_2}{s^4Y(s) + a_1s^3Y(s) + a_2s^2Y(s) + a_3sY(s) + a_4}$$
 
 $Let\ x_1=Y(s)\; \to x_1'=  sY(s)= x_2$\
 $Let\ x_2=sY(s)\ \to x_2'=s^2Y(s)= x_3$\
@@ -100,6 +170,21 @@ So I got An, Bn, Cn, Dn matrix and it works in the impulse response.
 >> 
 </code>
 </pre>
+
+
+<table>
+  <tr>
+    <td style="width: 50%;">
+      # 첫 번째 섹션 제목
+      첫 번째 섹션의 내용을 작성하세요.
+    </td>
+    <td style="width: 50%;">
+      # 두 번째 섹션 제목
+      두 번째 섹션의 내용을 작성하세요.
+    </td>
+  </tr>
+</table>
+
 
 Moreover, there are more zero values than the state space model obtained from the tf2ss function.
 
