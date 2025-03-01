@@ -276,18 +276,19 @@ But there are unwanted non-zero values in the state space model produced by the 
 
 # generalized method
 
-$Let\ x_1=Y(s)\ \to x_1'=  sY(s)= x_2$\
+$Let\ x_1=Y(s)\ \to x_1'=sY(s)= x_2$\
 $Let\ x_2=sY(s)\ \to x_2'=s^2Y(s)= x_3$\
 $Let\ x_3=s^2Y(s) \to x_3'=s^3Y(s) = x_4$\
 $......$\
 $Let\ x_{n-1}=s^{n-2}Y(s) \to x_{n-1}'=s^nY(s)=x_n$\
-$Let\ x_n=s^{n-1}Y(s) \to x_n'=s^nY(s) = -a_n Y(s) -a_{n-1} sY(s) -a_{n-2} s^2Y(s) ... -a_1 s^nY(s) +u = -a_n x_1 -a_{n-1} x_2 -a_{n-2} x_3 ...... -a_1 x_n + u $
+$Let\ x_n=s^{n-1}Y(s) \to x_n'=s^nY(s) = -a_n Y(s) -a_{n-1} sY(s) -a_{n-2} s^2Y(s) ... -a_1 s^nY(s) +u(s) = -a_n x_1 -a_{n-1} x_2 -a_{n-2} x_3 ...... -a_1 x_n + u $
 
 $$x'=\begin{bmatrix}
-0 & 1 & 0 & 0\\
-0 & 0 & 1 & 0\\
-0 & 1 & 0 & 1\\
--a_4 & -a_3 & -a_2 & -a_1
+0 & 1 & 0 & 0 & ... & 0\\
+0 & 0 & 1 & 0 & ... & 0\\
+0 & 0 & 0 & 1 & ... & 0\\
+... & ... & ... & ... & ... & 1\\
+-a_n & -a_{n-1} & -a_{n-2} & -a_{n-3} & ... & -a_1
 \end{bmatrix} + \begin{bmatrix}
 0\\
 0\\
