@@ -10,13 +10,22 @@
 >> num=0.7*omega*[2*(beta-alpha) beta^2-alpha^2]; den=conv(den1, den2);
 >> 
 >> sys_tf=tf(num,den); figure(1); impulse(sys_tf);
+error: Order numerator >= order denominator
+error: called from
+    imp invar at line 114 column 9
+    __c2d__ at line 65 column 16
+    c2d at line 87 column 7
+    __time_ response__ at line 161 column 13
+    impulse at line 79 column 13
 >>  
 >> [A,B,C,D]=tf2ss(num,den); sys_ss=ss(A,B,C,D); figure(2); impulse(sys_ss);
-error: c2d: system is already discrete-time
+error: Order numerator >= order denominator
 error: called from
-    c2d at line 69 column 5
-    __time_response__ at line 125 column 7
-    impulse at line 74 column 13
+    imp invar at line 114 column 9
+    __c2d__ at line 65 column 16
+    c2d at line 87 column 7
+    __time_ response__ at line 161 column 13
+    impulse at line 79 column 13
 >>
 </code>
 </pre>
@@ -45,7 +54,11 @@ ans = -34000000000
 <pre>
 <code>
 >> pole(sys_ss)
-ans = [](0x0)
+ans =
+  -1.2000e+10 + 2.5771e+11i
+  -1.2000e+10 - 2.5771e+11i
+  -5.6000e+10 + 2.5771e+11i
+  -5.6000e+10 - 2.5771e+11i
 >> zero(sys_ss)
 ans = [](0x1)
 >>
@@ -306,7 +319,7 @@ $$y = \begin{bmatrix}
 b_2 & b_1 & 0 & 0
 \end{bmatrix} + 0*u$$
 
-If the variables($\boldsymbol{\alpha, \beta, \gamma, \delta, \epsilon, \zeta, \eta, \theta, ..., \vartheta, \varphi}$) are modified to obtain "coefficient of the matrix = multiple of 2($2^n$)" after the continuous-to-discrete conversion,\
+If the variables($\boldsymbol{\alpha, \beta, \gamma, \delta, \epsilon, \zeta, \eta, \theta, ..., \vartheta, \varphi}$) are modified to obtain "coefficient of the matrix = multiple of 2($2^n$)" after the continuous-to-discrete conversion,
 the computational load can be reduced.
 
 <p>${\large{\color{#DD6565}It\ isn't\ logic\ to\ do\ "Let",\ so\ there\ is\ a\ problem\ in\ mathmatics.}}$</p>
